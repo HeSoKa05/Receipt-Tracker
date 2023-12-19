@@ -1,0 +1,12 @@
+<!-- a simple profile template-->
+{% extends 'base.html' %}
+{% block title %}
+  - Profile
+{% endblock %}
+
+{% block content %}
+  <h1>Welcome {{user.username}}!</h1>
+  <hr>
+  <a href="{% url 'receipt_tracker_app:home' %}">Back to home</a>
+  <a href="{% url 'receipt_tracker_app:receipt_list' %}">view all receipts</a>
+{% endblock %}

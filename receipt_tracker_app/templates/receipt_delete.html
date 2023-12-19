@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  - {{object.store_name}} Delete
+{% endblock %}
+
+{% block content %}
+    <h3>Are you sure that you want to delete {{ object.store_name }}?</h3>
+    <form action="" method="post">
+        <!-- checking the csrf token for security purposes -->
+        {% csrf_token %}
+        <input type="submit" value="Delete">
+    </form>
+    <!--
+    if the user entered this page by fault,
+    he can return back without deleting the receipt
+    -->
+    <a href="{% url 'receipt_tracker_app:receipt_list' %}">Cancel</a>
+{% endblock %}

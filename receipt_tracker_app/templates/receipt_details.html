@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}
+  - {{receipt.store_name}} details
+{% endblock %}
+
+{% block content %}
+    <ul>
+        <li>Store name: {{ receipt.store_name}}</li>
+        <li>description: {{ receipt.description}}</li>
+        <li>Item list: {{ receipt.item_list}}</li>
+        <li>Total amount: {{ receipt.total_amount}}</li>
+        <li>Purchase date: {{ receipt.purchase_date}}</li>
+    </ul>
+    <hr>
+    <a href="{% url 'receipt_tracker_app:receipt_update' receipt.id %}">Update</a>
+    <span>&nbsp;&nbsp;</span><!-- spacing -->
+    <a href="{% url 'receipt_tracker_app:receipt_delete' receipt.id %}">Delete</a>
+    <hr>
+    <a href="{% url 'receipt_tracker_app:receipt_create' %}">Create another receipt</a>&#x09;
+    <span>&nbsp;&nbsp;</span><!-- spacing -->
+    <a href="{% url 'receipt_tracker_app:receipt_list' %}">Receipts lists</a>
+{% endblock %}

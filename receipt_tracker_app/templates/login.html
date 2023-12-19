@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  - LogIn
+{% endblock %}
+
+{% block content %}
+  <h2>Login</h2>
+  <form method="post">
+    <!-- checking the csrf token for security purposes -->
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Login</button>
+  </form>
+  <p>You don't have an account? <a href="{% url 'receipt_tracker_app:register' %}">Register from here</a>.</p>
+{% endblock %}

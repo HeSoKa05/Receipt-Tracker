@@ -1,0 +1,21 @@
+<!-- UPDATE A Receipt Template -->
+<!--
+- I used update template instead of create just to
+- demonstrate the logic of editing/updating.
+- if I used the same template I would check the url of the page
+- and accordingly, some words will change like create/update ...
+-->
+{% extends 'base.html' %}
+
+{% block title %}
+  - Update {{receipt.store_name}}
+{% endblock %}
+
+{% block content %}
+  <h2>Updating {{receipt.store_name}} Receipt</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">update</button>
+  </form>
+{% endblock %}

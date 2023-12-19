@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Receipt Tracker {% block title %}{% endblock %}</title>
+    <!--
+    Since style are not important in this test I preferred to use <style> tag
+    to define some style rules.
+     -->
+    <style>
+        body {
+            margin: 0 110px;
+            padding: 0;
+            text-align: center;
+        }
+        ul{ list-style: none; }
+        a { margin: 5px 10px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h4><a href="{% url 'receipt_tracker_app:home' %}">Receipt Tracker</a></h4>
+        {% if user.is_authenticated %}
+            {{ user.username }}
+            <a href="{% url 'receipt_tracker_app:logout' %}">Logout</a>
+        {% else %}
+            <a href="{% url 'receipt_tracker_app:login' %}">Log in</a>
+        {% endif %}
+    </header>
+    <hr>
+    {% block content %}
+        <h1>Welcome to Receipt Tracker!</h1>
+        <h5>don't let your receipts lost anymore</h5>
+        <hr>
+        <br>
+        <a href="{% url 'receipt_tracker_app:receipt_create' %}">Create New Receipt</a>
+        <span>      </span>
+        <a href="{% url 'receipt_tracker_app:receipt_list' %}">Show all receipts</a>
+    {% endblock %}
+</body>
+</html>

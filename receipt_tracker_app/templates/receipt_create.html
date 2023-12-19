@@ -1,0 +1,24 @@
+<!-- Create New Receipt Template -->
+{% extends 'base.html' %}
+
+{% block title %}
+  - Create a new Receipt
+{% endblock %}
+
+<!-- the block content will be shown in "home.html" template -->
+{% block content %}
+  <!-- page Heading -->
+  <h2>Create New Receipt</h2>
+  <form method="post">
+    <!-- checking the csrf token for security purposes -->
+    {% csrf_token %}
+    <!--
+      the form of creating a receipt will be retrieved from model
+      and inserted here
+      the form fields will be enclosed by <p> tag:
+      <p><input .../></p>
+    -->
+    {{ form.as_p }}
+    <button type="submit">Create</button>
+  </form>
+{% endblock %}

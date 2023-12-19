@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  - Receipts List
+{% endblock %}
+
+{% block content %}
+    {% if object_list|length == 0 %}
+        No receipt registered yet.
+        <br>
+        <a href="{% url 'receipt_tracker_app:receipt_create' %}">Create a new one</a>
+    {% else %}
+        <h4>total receipts: {{ object_list|length}}</h4>
+        <p>-------------</p>
+        <!-- create table view -->
+        {% for receipt in object_list %}
+            <ul>
+                <li><a href="{% url 'receipt_tracker_app:receipt_detail' receipt.id %}">{{ receipt.store_name }}</a></li>
+                <li>{{ receipt.description|truncatewords:4 }}</li> <!-- description preview: view the first 4 words -->
+                <li>{{ receipt.total_amount }}</li>
+            </ul>
+            <a href="{% url 'receipt_tracker_app:receipt_update' receipt.id %}">Edit</a>
+            <span>&nbsp;&nbsp;</span><!-- spacing -->
+            <a href="{% url 'receipt_tracker_app:receipt_delete' receipt.id %}">Delete</a>
+            <hr><br>
+        {% endfor %}
+    {% endif %}
+
+{% endblock %}
