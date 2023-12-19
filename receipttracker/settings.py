@@ -79,16 +79,6 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     },
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.mysql',
-    #     'NAME': 'soufyaneHedidi$receipt_tracker',
-    #     'USER': 'soufyaneHedidi',
-    #     'PASSWORD': 'receipttracker_db',
-    #     'HOST': 'soufyaneHedidi.mysql.pythonanywhere-services.com',
-    #     'TEST': {
-    #         'NAME': 'soufyaneHedidi$test_receipt_tracker'
-    #     }
-    # }
 }
 
 
